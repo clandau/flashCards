@@ -20,11 +20,10 @@ body {
     border-radius: 5px;
 }
 
-input {
-    display: block;
+input,textarea {
     margin-bottom: 10px;
     padding: 5px;
-    width: 40%;
+    width: 80%;
     border: 1px solid ivory;
     border-radius: 3px;
     font-size: 16px;
