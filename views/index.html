@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">                               
+        <meta http-equiv="x-ua-compatible" content="ie=edge"> 
+        <title>Flash card API</title>
+        <link href='../public/style.css' rel='stylesheet' type='text/css'/>
+    </head>
+
+    <body>
+        <div class='container'>
+            <h1 id='title'>Flash Card API</h1>
+            <div class='form'>
+                <form action='/api/random' method='GET'>
+                    <input id='category' type='text' name='category' placeholder='category'><br>
+                    <button type='submit'>Get a random card</button>
+                </form>
+            </div>
+            <div class='form'>
+                <form action="/api/card/new" method='POST'>
+                    <h3>Add a new card</h3>
+                    <input id='side1' type='text' name='side1' placeholder='Enter text for side one.'><br>
+                    <input id='side2' type='text' name='side2' placeholder='Enter text for side two.'><br>
+                    <input type='submit' value='Submit card'>
+                </form>
+            </div>
+        </div>
+        
+    </body>
+</html>
