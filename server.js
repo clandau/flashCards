@@ -1,17 +1,15 @@
-const Koa = require('koa')
-const Router = require('koa-router')
-const logger = require('koa-logger')
-const app = new Koa()
-const router = new Router()
-app.use(logger())
+const express = require('express')
+const app = express()
+const path = require('path')
+const router = express.Router()
 
-router.get('/', (ctx, next) => {
-    ctx.body = 'Hello world 2'
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname+'/views/index.html'))
 })
 
-app.use(router.routes())
-app.use(router.allowedMethods())
-
-app.listen(3000, () => {
-    console.info(`server listening on port 3000`)
+const PORT = process.env.PORT || 3000
+const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
 })

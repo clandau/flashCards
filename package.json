@@ -10,8 +10,6 @@
   "author": "cel",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.7.0",
-    "koa-logger": "^3.2.0",
-    "koa-router": "^7.4.0"
+    "express": "^4.16.4"
   }
 }
