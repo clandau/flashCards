@@ -22,7 +22,7 @@ connection.connect((err) => {
     }
     else console.log(`connected to database`)
 })
-
+// app.use(myConnection(mysql, dbOptions, 'request'))
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -30,8 +30,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/random', (req, res) => {
-    //get a random card from the database and send the json response
-    
+    let category = req.query.category
+    if(category) {
+        connection.query('SELECT sideA, sideB FROM card WHERE category=? ORDER BY RAND() LIMIT 1', [category],(err, rows) => {
+            if(err) res.send(err)
+            res.send(rows)
+        })
+    }
+    else {
+        connection.query('SELECT sideA, sideB FROM card ORDER BY RAND() LIMIT 1', (err, rows) => {
+            if(err) res.send(err)
+            res.send(rows)
+        })
+    }
 })
 
 const PORT = process.env.PORT || 3000
