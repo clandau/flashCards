@@ -45,7 +45,6 @@ app.get('/random', (req, res) => {
 })
 
 app.post('/new', (req, res) => {
-    console.log(req.body)
     if(!req.body) {
         res.status(400).send('Request body missing')
     }
@@ -55,10 +54,10 @@ app.post('/new', (req, res) => {
         let data = JSON.parse(JSON.stringify(req.body))
         req.getConnection((err, conn) => {
             if(err) res.send(err)
-            conn.query(sql, [data], (err, rows, fields) => {
+            conn.query(sql, [data], (err, rows) => {
                 if(err) res.send(err)
                 else {
-                    res.send(rows)
+                    res.send(`sucessfully added to database. ${data}`)
                 }
             })
         })
