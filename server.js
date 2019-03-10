@@ -28,10 +28,10 @@ app.get('/random', (req, res) => {
     let category = req.query.category
     let sql
     if(!category) {
-        sql = 'SELECT sideA, sideB FROM card ORDER BY RAND() LIMIT 1'
+        sql = 'SELECT category, sideA, sideB FROM card ORDER BY RAND() LIMIT 1'
     }
     else {
-        sql = 'SELECT sideA, sideB FROM card WHERE category=? ORDER BY RAND() LIMIT 1'
+        sql = 'SELECT category, sideA, sideB FROM card WHERE category=? ORDER BY RAND() LIMIT 1'
     }
     req.getConnection((err, conn) => {
         if(err) res.send(err)
