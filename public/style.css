@@ -46,8 +46,13 @@ button {
     cursor: pointer;
   }
 
+div#sideA {
+  min-height: 200px;
+}
+
 div#sideB {
   display : none;
+  min-height: 250px;
 }
 
 #footer {
@@ -61,4 +66,8 @@ div#sideB {
 a {
   text-decoration: none;
   color: black
+}
+
+h1 {
+  text-align: left;
 }
