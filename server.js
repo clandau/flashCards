@@ -3,7 +3,6 @@ const app = express()
 const path = require('path')
 const config = require('./config')
 const bodyParser = require('body-parser')
-const pug = require('pug')
 
 const mysql = require('mysql'),
       myConnection = require('express-myconnection'),
