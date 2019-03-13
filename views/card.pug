@@ -4,7 +4,7 @@ block content
     body
         div(class='container')
             div(id='sideA')
-                //- h1 Side A
+                h2 Side A
                 p #{cardData[0].sideA}
             script.
                 function showB() {
@@ -14,6 +14,6 @@ block content
                     
             button(href='#' id='sideBbutton' onclick='showB()') Show Side B
             div(id='sideB')
-                //- h1 Side B
+                h2 Side B
                 p #{cardData[0].sideB}
             
