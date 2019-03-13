@@ -9,8 +9,10 @@ block content
             script.
                 function showB() {
                     document.getElementById('sideB').style.display=('block')
+                    document.getElementById('sideBbutton').style.display=('none')
                     }
-            button(href='#' onclick='showB()') Show Side B
+                    
+            button(href='#' id='sideBbutton' onclick='showB()') Show Side B
             div(id='sideB')
                 h1 Side B
                 p #{cardData[0].sideB}
