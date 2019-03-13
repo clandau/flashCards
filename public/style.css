@@ -36,3 +36,7 @@ button {
     box-shadow: 2px 2px lightgrey;
     cursor: pointer;
   }
+
+div#sideB {
+  display : none;
+}

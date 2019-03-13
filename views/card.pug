@@ -3,10 +3,15 @@ extends layout
 block content
     body
         div(class='container')
-            h1 Side A
             div(id='sideA')
+                h1 Side A
                 p #{cardData[0].sideA}
-                a(class='button' id='showSide')
-            
+            script.
+                function showB() {
+                    document.getElementById('sideB').style.display=('block')
+                    }
+            button(href='#' onclick='showB()') Show Side B
             div(id='sideB')
+                h1 Side B
+                p #{cardData[0].sideB}
             
