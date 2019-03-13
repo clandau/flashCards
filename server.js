@@ -3,6 +3,7 @@ const app = express()
 const path = require('path')
 const config = require('./config')
 const bodyParser = require('body-parser')
+const pug = require('pug')
 
 const mysql = require('mysql'),
       myConnection = require('express-myconnection'),
@@ -19,6 +20,7 @@ app.use(myConnection(mysql, dbOptions, 'request'))
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname+'/views/index.html'))
@@ -37,8 +39,8 @@ app.get('/random', (req, res) => {
         if(err) res.send(err)
         conn.query(sql, [category], (err, rows) => {
             if(err) res.send(err)
-            else { 
-                res.send(rows)
+            else {          
+                res.render('card', { 'cardData' : rows })
             }
         })
     })
