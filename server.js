@@ -69,7 +69,7 @@ app.post('/new', (req, res) => {
             conn.query(sql, [data], (err, rows) => {
                 if(err) res.send(err)
                 else {
-                    res.send(`sucessfully added to database. ${data}`)
+                    res.render('success', { 'message' : 'Successfully added card to database'})
                 }
             })
         })
