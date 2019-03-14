@@ -45,6 +45,17 @@ app.get('/random', (req, res) => {
     })
 })
 
+app.get('/all', (req, res) => {
+    const sql = 'SELECT * FROM card ORDER BY category'
+    req.getConnection((err, conn) => {
+        if(err) res.send(err)
+        conn.query(sql, (err, rows) => {
+            if(err) res.send(err)
+            res.status(200).json(rows)
+        })
+    })
+})
+
 app.post('/new', (req, res) => {
     if(!req.body) {
         res.render('400', { 'err': 'Request body missing.'})
