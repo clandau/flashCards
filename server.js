@@ -47,9 +47,9 @@ app.get('/random', (req, res) => {
 
 app.post('/new', (req, res) => {
     if(!req.body) {
-        res.status(400).send('Request body missing')
+        res.render('400', { 'err': 'Request body missing.'})
     }
-    if(!req.body.sideA) res.send(`No text entered.`)
+    if(!req.body.sideA) res.render('400', { 'err': 'No text entered.'})
     else {
         let sql = `INSERT INTO card set ?`
         let data = JSON.parse(JSON.stringify(req.body))
