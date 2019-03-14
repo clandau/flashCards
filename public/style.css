@@ -69,6 +69,10 @@ a {
   color: black
 }
 
+a#nextCardLink {
+  display: none;
+}
+
 h2 {
   text-align: left;
 }

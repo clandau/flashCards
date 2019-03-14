@@ -39,7 +39,7 @@ app.get('/random', (req, res) => {
         conn.query(sql, [category], (err, rows) => {
             if(err) res.send(err)
             else {          
-                res.render('card', { 'cardData' : rows })
+                res.render('card', { 'cardData' : rows, 'category' : category })
             }
         })
     })
