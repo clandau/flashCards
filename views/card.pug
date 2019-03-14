@@ -18,5 +18,9 @@ block content
                 h2 Side B
                 p #{cardData[0].sideB}
                 div 
-            a(id='nextCardLink' href='/random/' + category) Get a new card
+            if category
+                a(id='nextCardLink' href='/random/?category=' + category) Get a new card
+            else 
+                a(id='nextCardLink' href='/random/' + category) Get a new card
+
             
